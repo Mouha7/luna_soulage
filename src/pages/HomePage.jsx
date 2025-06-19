@@ -7,6 +7,7 @@ import { RiShieldCheckLine, RiMedicineBottleLine } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
 import { PiWhatsappLogoFill } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
+import { WA_BUSINESS_NUMBER } from "../constants/info";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { 
@@ -17,7 +18,7 @@ import {
 } from '../constants/animationVariants';
 
 const HomePage = () => {
-    const WhatsApp = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
+    const WhatsApp = WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
 	return (
 		<div className="flex flex-col w-full justify-center items-center">
 			{/* Section 1: Bannière principale */}

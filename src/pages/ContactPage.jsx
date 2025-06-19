@@ -8,6 +8,7 @@ import { MdOutlineShoppingCart, MdOutlineQuestionAnswer, MdOutlineSupportAgent }
 import { FiCheck } from "react-icons/fi";
 import { FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
+import { WA_BUSINESS_NUMBER } from "../constants/info";
 import { 
     fadeInUp, 
     fadeInLeft, 
@@ -98,9 +99,9 @@ const ContactPage = () => {
             }, 5000);
     };
     
-    const wa_01 = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
-    const wa_02 = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20j'ai%20une%20question%20concernant%20les%20patchs%20Luna%20Soulage";
-    const wa_03 = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20j'ai%20besoin%20d'aide%20concernant%20ma%20commande%20Luna%20Soulage";
+    const wa_01 = WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
+    const wa_02 = WA_BUSINESS_NUMBER + "?text=Bonjour,%20j'ai%20une%20question%20concernant%20les%20patchs%20Luna%20Soulage";
+    const wa_03 = WA_BUSINESS_NUMBER + "?text=Bonjour,%20j'ai%20besoin%20d'aide%20concernant%20ma%20commande%20Luna%20Soulage";
 
     return (
         <div className="flex flex-col w-full justify-center items-center">

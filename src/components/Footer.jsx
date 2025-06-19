@@ -7,6 +7,7 @@ import Logo from "../assets/images/logo.png";
 import OM from "../assets/images/om.jpg";
 import Wave from "../assets/images/wave.jpg";
 import FM from "../assets/images/fm.png";
+import { FACEBOOK_PAGE, INSTAGRAM_PAGE, TIKTOK_PAGE } from "../constants/info"
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { 
@@ -22,9 +23,9 @@ import {
 } from "../constants/animationVariants";
 
 export function Footer() {
-    const facebookLink = import.meta.env.FACEBOOK_PAGE
-    const instagramLink = import.meta.env.INSTAGRAM_PAGE
-    const tiktokLink = import.meta.env.TIKTOK_PAGE
+    const facebookLink = FACEBOOK_PAGE
+    const instagramLink = INSTAGRAM_PAGE
+    const tiktokLink = TIKTOK_PAGE
 
     return (
         <motion.footer 

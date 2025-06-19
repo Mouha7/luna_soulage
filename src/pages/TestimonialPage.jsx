@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiCheck } from "react-icons/fi";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import emailjs from '@emailjs/browser';
+import { WA_BUSINESS_NUMBER } from "../constants/info";
 import { 
     fadeInUp, 
     staggerContainer, 
@@ -112,7 +113,7 @@ const TestimonialPage = () => {
         return stars;
     };
 
-    const whatsApp = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
+    const whatsApp = WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
 
     return (
         <div className="flex flex-col w-full justify-center items-center">
