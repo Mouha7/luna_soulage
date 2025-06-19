@@ -49,15 +49,17 @@ const TestimonialPage = () => {
         
         // Utiliser les variables d'environnement comme dans ContactPage.jsx
         const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_TESTIMONIAL; // Utiliser un template différent pour les témoignages
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
         const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
         
         // Préparer les données du template
         const templateParams = {
             from_name: formData.name,
             from_email: formData.email,
-            rating: formData.rating,
-            testimonial: formData.testimonial,
+            stars: formData.rating,
+            phone_number: "xxx-xxx-xx-xx",
+            subject: "Témoignage Luna Soulage",
+            message: formData.testimonial,
         };
         
         emailjs.send(serviceId, templateId, templateParams, publicKey)
