@@ -53,7 +53,7 @@ Site vitrine pour les patchs Luna Soulage, une solution naturelle contre les dou
   - [✅] Rendu des polices et images
   - [✅] Fonctionnalité du bouton "Retour en haut"
 - [✅] Optimisation des performances
-- [ ] Déploiement sur Vercel
+- [✅] Déploiement sur Vercel
 - [ ] Configuration du domaine (si applicable)
 
 ## 🏗️ Structure du projet

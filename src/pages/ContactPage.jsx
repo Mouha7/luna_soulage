@@ -1,16 +1,13 @@
-import BannerContact from "../assets/images/banner_contact.jpg";
-import { BtnCustom } from "../components/Btn";
-import { useState } from "react";
-import { PiWhatsappLogoFill } from "react-icons/pi";
-import {
-    MdOutlineSupportAgent,
-    MdOutlineShoppingCart,
-    MdOutlineQuestionAnswer,
-} from "react-icons/md";
-import { FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
-import { FiCheck } from "react-icons/fi";
+import { useRef, useState } from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { BtnCustom } from "../components/Btn";
+import BannerContact from "../assets/images/banner_contact.jpg";
+import { PiWhatsappLogoFill } from "react-icons/pi";
+import { MdOutlineShoppingCart, MdOutlineQuestionAnswer, MdOutlineSupportAgent } from "react-icons/md";
+import { FiCheck } from "react-icons/fi";
+import { FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
+import emailjs from '@emailjs/browser';
 import { 
     fadeInUp, 
     fadeInLeft, 
@@ -27,6 +24,8 @@ import {
 } from "../constants/animationVariants";
 
 const ContactPage = () => {
+    const form = useRef();
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -35,6 +34,11 @@ const ContactPage = () => {
         message: "",
         consent: false,
     });
+
+    // État pour gérer l'affichage du message
+    const [showMessage, setShowMessage] = useState(false);
+    const [messageType, setMessageType] = useState(''); // 'success' ou 'error'
+    const [messageText, setMessageText] = useState('');
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -46,19 +50,54 @@ const ContactPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Ici, vous pouvez ajouter la logique pour envoyer les données
-        console.log("Form submitted:", formData);
-        alert("Votre message a été envoyé avec succès !");
-        setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: "",
-            consent: false,
-        });
-    };
+        setIsSubmitting(true);
+        
+        // Configuration EmailJS
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        
+        // Préparer les données du template
+        const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email,
+            phone_number: formData.phone,
+            subject: formData.subject,
+            message: formData.message,
+        };
+        
+        emailjs.send(serviceId, templateId, templateParams, publicKey)
+            .then((response) => {
+                console.log('Email envoyé avec succès!', response.status, response.text);
+                setMessageType('success');
+                setMessageText('Votre message a bien été envoyé!');
+                setShowMessage(true);
+                // Réinitialiser le formulaire
+                setFormData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    subject: "",
+                    message: "",
+                    consent: false,
+                });
+            })
+            .catch((error) => {
+                console.error('Erreur lors de l\'envoi de l\'email:', error);
+                setMessageType('error');
+                setMessageText('Une erreur est survenue. Veuillez réessayer.');
+                setShowMessage(true);
+            })
+            .finally(() => {
+                setIsSubmitting(false);
+            });
 
+            // Fermer le message après 5 secondes
+            setTimeout(() => {
+                setShowMessage(false);
+            }, 5000);
+    };
+    
     return (
         <div className="flex flex-col w-full justify-center items-center">
             {/* Bannière principale */}
@@ -242,15 +281,17 @@ const ContactPage = () => {
                     </motion.p>
 
                     <motion.form
+                        ref={form}
                         onSubmit={handleSubmit}
-                        className="bg-white rounded-lg p-6 shadow-md max-w-2xl mx-auto"
+                        className="bg-white rounded-lg p-6 shadow-md max-w-2xl mx-auto relative overflow-hidden"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         whileHover={{ boxShadow: "0 10px 25px rgba(167, 68, 136, 0.1)" }}
                     >
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mt-4">
                             <div>
                                 <label
                                     htmlFor="name"
@@ -376,14 +417,49 @@ const ContactPage = () => {
                         <div className="text-center">
                             <motion.button
                                 type="submit"
-                                className="bg-primary text-white font-bold rounded-lg py-2 px-6 hover:bg-primary/80 transition-colors"
-                                whileHover={{ scale: 1.05 }}
+                                className="bg-primary text-white font-bold rounded-lg py-2 px-6 hover:bg-primary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                                 whileTap={buttonTapAnimation}
+                                disabled={isSubmitting}
                             >
-                                Envoyer le message
+                                {isSubmitting ? (
+                                    <div className="flex items-center justify-center">
+                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                                        Envoi en cours...
+                                    </div>
+                                ) : (
+                                    "Envoyer le message"
+                                )}
                             </motion.button>
                         </div>
                     </motion.form>
+
+                    {/* Message de confirmation */}
+                    {showMessage && (
+                        <AnimatePresence>
+                            <motion.div 
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                className={`message-notification ${messageType === 'success' ? 'success' : 'error'}`}
+                            >
+                                <div className="message-content">
+                                    {messageType === 'success' ? (
+                                        <FiCheck className="message-icon" />
+                                    ) : (
+                                        <span className="message-icon">!</span>
+                                    )}
+                                    <p>{messageText}</p>
+                                    <button 
+                                        className="close-btn" 
+                                        onClick={() => setShowMessage(false)}
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    )}
                 </div>
             </section>
 
