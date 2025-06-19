@@ -17,6 +17,7 @@ import {
 } from '../constants/animationVariants';
 
 const HomePage = () => {
+    const WhatsApp = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
 	return (
 		<div className="flex flex-col w-full justify-center items-center">
 			{/* Section 1: Bannière principale */}
@@ -55,7 +56,7 @@ const HomePage = () => {
 						}}
 					>
 						<BtnCustom
-							to="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage"
+							to={WhatsApp}
 							className="mt-2 sm:mt-4 flex items-center gap-2"
 						>
 							<PiWhatsappLogoFill size={20} />
@@ -601,7 +602,7 @@ const HomePage = () => {
 					whileTap={{ scale: 0.98 }}
 				>
 					<BtnCustom
-						to="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage"
+						to={WhatsApp}
 						className="mx-auto px-8 py-2 flex items-center gap-2 justify-center"
 					>
 						<motion.span

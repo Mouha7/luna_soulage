@@ -112,6 +112,8 @@ const TestimonialPage = () => {
         return stars;
     };
 
+    const whatsApp = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
+
     return (
         <div className="flex flex-col w-full justify-center items-center">
             {/* Bannière principale */}
@@ -1075,7 +1077,7 @@ const TestimonialPage = () => {
                         transition={{ duration: 0.6, delay: 0.5 }}
                     >
                         <BtnCustom
-                            to="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage"
+                            to={whatsApp}
                             text="Commander maintenant"
                             className=""
                         />

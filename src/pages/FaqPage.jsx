@@ -31,6 +31,7 @@ const FaqPage = () => {
     const handleTabChange = (tab) => {
         setActiveTab(tab);
     };
+    const whatsApp = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20j'ai%20une%20question%20concernant%20les%20patchs%20Luna%20Soulage";
     return (
         <div className="flex flex-col w-full justify-center items-center">
             {/* Bannière principale */}
@@ -829,7 +830,7 @@ const FaqPage = () => {
                         transition={{ delay: 0.3 }}
                     >
                         <BtnCustom
-                            to="https://wa.me/221770000000?text=Bonjour,%20j'ai%20une%20question%20concernant%20les%20patchs%20Luna%20Soulage"
+                            to={whatsApp}
                             className="mx-auto flex items-center gap-2 justify-center"
                         >
                             <PiWhatsappLogoFill size={20} />

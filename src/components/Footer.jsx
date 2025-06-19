@@ -22,6 +22,10 @@ import {
 } from "../constants/animationVariants";
 
 export function Footer() {
+    const facebookLink = import.meta.env.FACEBOOK_PAGE
+    const instagramLink = import.meta.env.INSTAGRAM_PAGE
+    const tiktokLink = import.meta.env.TIKTOK_PAGE
+
     return (
         <motion.footer 
             className="mt-5 sm:mt-6 md:mt-7 px-3 sm:px-4 md:px-5 border-t border-ombre/25 bg-background"
@@ -118,7 +122,7 @@ export function Footer() {
                             className="text-sm sm:text-base text-txt"
                             variants={listItemVariant}
                         >
-                            WhatsApp: (+221) 77 000 00 00
+                            WhatsApp: (+221) 77 593 76 79
                         </motion.p>
                         <motion.p 
                             className="text-sm sm:text-base text-txt"
@@ -133,7 +137,7 @@ export function Footer() {
                             animate="visible"
                         >
                             <motion.a 
-                                href="https://www.facebook.com/lunasoulage" 
+                                href={facebookLink}
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 aria-label="Facebook"
@@ -145,7 +149,7 @@ export function Footer() {
                                 </motion.div>
                             </motion.a>
                             <motion.a 
-                                href="https://www.tiktok.com/@lunasoulage" 
+                                href={tiktokLink}
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 aria-label="TikTok"
@@ -157,7 +161,7 @@ export function Footer() {
                                 </motion.div>
                             </motion.a>
                             <motion.a 
-                                href="https://www.instagram.com/lunasoulage" 
+                                href={instagramLink} 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 aria-label="Instagram"

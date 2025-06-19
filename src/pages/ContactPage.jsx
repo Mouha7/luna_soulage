@@ -98,6 +98,10 @@ const ContactPage = () => {
             }, 5000);
     };
     
+    const wa_01 = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
+    const wa_02 = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20j'ai%20une%20question%20concernant%20les%20patchs%20Luna%20Soulage";
+    const wa_03 = import.meta.env.WA_BUSINESS_NUMBER + "?text=Bonjour,%20j'ai%20besoin%20d'aide%20concernant%20ma%20commande%20Luna%20Soulage";
+
     return (
         <div className="flex flex-col w-full justify-center items-center">
             {/* Bannière principale */}
@@ -174,7 +178,7 @@ const ContactPage = () => {
                         </p>
                         <div className="mt-auto">
                             <BtnCustom
-                                to="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage"
+                                to={wa_01}
                                 className="w-full flex items-center gap-2 justify-center"
                             >
                                 <PiWhatsappLogoFill size={20} />
@@ -208,7 +212,7 @@ const ContactPage = () => {
                         </p>
                         <div className="mt-auto">
                             <BtnCustom
-                                to="https://wa.me/221770000000?text=Bonjour,%20j'ai%20une%20question%20concernant%20les%20patchs%20Luna%20Soulage"
+                                to={wa_02}
                                 className="w-full flex items-center gap-2 justify-center"
                             >
                                 <PiWhatsappLogoFill size={20} />
@@ -242,7 +246,7 @@ const ContactPage = () => {
                         </p>
                         <div className="mt-auto">
                             <BtnCustom
-                                to="https://wa.me/221770000000?text=Bonjour,%20j'ai%20besoin%20d'aide%20concernant%20ma%20commande%20Luna%20Soulage"
+                                to={wa_03}
                                 className="w-full flex items-center gap-2 justify-center"
                             >
                                 <PiWhatsappLogoFill size={20} />
@@ -695,7 +699,7 @@ const ContactPage = () => {
                                     </div>
                                 </motion.div>
                                 <BtnCustom
-                                    to="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage"
+                                    to={wa_01}
                                     className="w-full mt-4 flex items-center gap-2 justify-center"
                                 >
                                     <PiWhatsappLogoFill size={20} />
@@ -855,7 +859,7 @@ const ContactPage = () => {
                     transition={{ duration: 0.6, delay: 0.3 }}
                 >
                     <BtnCustom
-                        to="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage"
+                        to={wa_01}
                         text={
                             <span className="flex items-center gap-2 justify-center">
                                 <PiWhatsappLogoFill size={20} />
