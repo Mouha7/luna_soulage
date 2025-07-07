@@ -131,6 +131,16 @@ Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus
 
 ---
 
+## 📞 Contact
+
+### Luna Soulage Team
+
+- 📧 Email : <seydina.mrs@gmail.com>
+- 📱 Téléphone : (221) 78 459 05 36
+- 🌐 Site web : [luna-soulage.vercel.app](https://luna-soulage.vercel.app)
+
+---
+
 ## 💌 Remerciements
 
 Merci de faire confiance à **Luna Soulage** pour transformer votre expérience des règles. 🌸
