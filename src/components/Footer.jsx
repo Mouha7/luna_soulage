@@ -2,12 +2,11 @@ import { SlSocialFacebook } from "react-icons/sl";
 import { PiTiktokLogo } from "react-icons/pi";
 import { BsInstagram } from "react-icons/bs";
 import { CiDeliveryTruck } from "react-icons/ci";
-import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import OM from "../assets/images/om.jpg";
 import Wave from "../assets/images/wave.jpg";
 import FM from "../assets/images/fm.png";
-import { FACEBOOK_PAGE, INSTAGRAM_PAGE, TIKTOK_PAGE } from "../constants/info"
+import { FACEBOOK_PAGE, INSTAGRAM_PAGE, TIKTOK_PAGE, WA_BUSINESS_NUMBER } from "../constants/info";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { 
@@ -23,9 +22,21 @@ import {
 } from "../constants/animationVariants";
 
 export function Footer() {
-    const facebookLink = FACEBOOK_PAGE
-    const instagramLink = INSTAGRAM_PAGE
-    const tiktokLink = TIKTOK_PAGE
+    const facebookLink = FACEBOOK_PAGE;
+    const instagramLink = INSTAGRAM_PAGE;
+    const tiktokLink = TIKTOK_PAGE;
+    const whatsApp = WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
+
+    // Fonction pour faire défiler vers une section
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
 
     return (
         <motion.footer 
@@ -41,7 +52,10 @@ export function Footer() {
             >
                 {/* Logo - masqué sur mobile et tablette */}
                 <motion.div variants={fadeInLeft}>
-                    <Link to="/" className="hidden lg:flex items-center w-full lg:w-auto lg:flex-shrink-0 lg:mr-8">
+                    <button 
+                        onClick={() => scrollToSection('hero')} 
+                        className="hidden lg:flex items-center w-full lg:w-auto lg:flex-shrink-0 lg:mr-8"
+                    >
                         <motion.img
                             className="w-20 md:w-24 object-contain h-auto"
                             loading="lazy"
@@ -50,7 +64,7 @@ export function Footer() {
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.3 }}
                         />
-                    </Link>
+                    </button>
                 </motion.div>
 
                 {/* Grille de liens responsive */}
@@ -71,32 +85,44 @@ export function Footer() {
                         </motion.h2>
                         <motion.div variants={staggerContainer}>
                             <motion.div variants={listItemVariant}>
-                                <NavLink to="/presentation" className="text-sm sm:text-base hover:text-txtLight hover:underline block">
+                                <button 
+                                    onClick={() => scrollToSection('problem-solution')} 
+                                    className="text-sm sm:text-base hover:text-txtLight hover:underline block text-left"
+                                >
                                     <motion.span whileHover="hover" variants={footerLinkVariant} className="inline-block">
                                         Présentation du produit
                                     </motion.span>
-                                </NavLink>
+                                </button>
                             </motion.div>
                             <motion.div variants={listItemVariant}>
-                                <NavLink to="/instructions" className="text-sm sm:text-base hover:text-txtLight hover:underline block">
+                                <button 
+                                    onClick={() => scrollToSection('how-it-works')} 
+                                    className="text-sm sm:text-base hover:text-txtLight hover:underline block text-left"
+                                >
                                     <motion.span whileHover="hover" variants={footerLinkVariant} className="inline-block">
                                         Mode d'emploi
                                     </motion.span>
-                                </NavLink>
+                                </button>
                             </motion.div>
                             <motion.div variants={listItemVariant}>
-                                <NavLink to="/temoignages" className="text-sm sm:text-base hover:text-txtLight hover:underline block">
+                                <button 
+                                    onClick={() => scrollToSection('testimonials')} 
+                                    className="text-sm sm:text-base hover:text-txtLight hover:underline block text-left"
+                                >
                                     <motion.span whileHover="hover" variants={footerLinkVariant} className="inline-block">
                                         Témoignages clients
                                     </motion.span>
-                                </NavLink>
+                                </button>
                             </motion.div>
                             <motion.div variants={listItemVariant}>
-                                <NavLink to="/faq" className="text-sm sm:text-base hover:text-txtLight hover:underline block">
+                                <button 
+                                    onClick={() => scrollToSection('faq')} 
+                                    className="text-sm sm:text-base hover:text-txtLight hover:underline block text-left"
+                                >
                                     <motion.span whileHover="hover" variants={footerLinkVariant} className="inline-block">
-                                        FAQ et Livraison
+                                        FAQ
                                     </motion.span>
-                                </NavLink>
+                                </button>
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -113,11 +139,16 @@ export function Footer() {
                             Contact
                         </motion.h2>
                         <motion.div variants={listItemVariant}>
-                            <NavLink to="/contact" className="text-sm sm:text-base hover:text-txtLight hover:underline font-medium block">
+                            <a 
+                                href={whatsApp}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm sm:text-base hover:text-txtLight hover:underline font-medium block"
+                            >
                                 <motion.span whileHover="hover" variants={footerLinkVariant} className="inline-block">
                                     Commander maintenant
                                 </motion.span>
-                            </NavLink>
+                            </a>
                         </motion.div>
                         <motion.p 
                             className="text-sm sm:text-base text-txt"
@@ -176,7 +207,7 @@ export function Footer() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Colonne 3 - Légal et Paiements */}
+                    {/* Colonne 3 - Informations */}
                     <motion.div 
                         className="flex flex-col gap-2 sm:gap-3"
                         variants={fadeInUp}
@@ -185,29 +216,28 @@ export function Footer() {
                             className="text-lg sm:text-xl font-bold uppercase text-primary"
                             variants={fadeInLeft}
                         >
-                            Informations légales
+                            Informations
                         </motion.h2>
                         <motion.div variants={staggerContainer}>
                             <motion.div variants={listItemVariant}>
-                                <NavLink to="/mentions-legales" className="text-sm sm:text-base hover:text-txtLight hover:underline block">
+                                <button 
+                                    onClick={() => scrollToSection('key-benefits')} 
+                                    className="text-sm sm:text-base hover:text-txtLight hover:underline block text-left"
+                                >
                                     <motion.span whileHover="hover" variants={footerLinkVariant} className="inline-block">
-                                        Mentions légales
+                                        Avantages
                                     </motion.span>
-                                </NavLink>
+                                </button>
                             </motion.div>
                             <motion.div variants={listItemVariant}>
-                                <NavLink to="/politique-confidentialite" className="text-sm sm:text-base hover:text-txtLight hover:underline block">
+                                <button 
+                                    onClick={() => scrollToSection('packs-prix')} 
+                                    className="text-sm sm:text-base hover:text-txtLight hover:underline block text-left"
+                                >
                                     <motion.span whileHover="hover" variants={footerLinkVariant} className="inline-block">
-                                        Politique de confidentialité
+                                        Nos packs
                                     </motion.span>
-                                </NavLink>
-                            </motion.div>
-                            <motion.div variants={listItemVariant}>
-                                <NavLink to="/conditions-utilisation" className="text-sm sm:text-base hover:text-txtLight hover:underline block">
-                                    <motion.span whileHover="hover" variants={footerLinkVariant} className="inline-block">
-                                        Conditions générales
-                                    </motion.span>
-                                </NavLink>
+                                </button>
                             </motion.div>
                         </motion.div>
                         <motion.div 

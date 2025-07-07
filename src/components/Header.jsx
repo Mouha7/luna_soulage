@@ -1,29 +1,36 @@
-import { NavLink } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import Logo from "../assets/images/logo.png";
+import { WA_BUSINESS_NUMBER } from "../constants/info";
 
 export function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [hasScrolled, setHasScrolled] = useState(false);
     const menuRef = useRef(null);
 
-    // Classe responsive pour le menu hamburger et desktop
-    const navLinkStyles = ({ isActive }) =>
-        isActive
-            ? "font-bold text-primary border-b-2 border-primary transition-colors duration-200 px-2 py-1.5 md:px-3 md:py-2"
-            : "font-medium hover:text-txtLight hover:border-b-2 hover:border-primary transition-colors duration-200 px-2 py-1.5 md:px-3 md:py-2";
+    const whatsApp = WA_BUSINESS_NUMBER + "?text=Bonjour,%20je%20souhaite%20commander%20des%20patchs%20Luna%20Soulage";
 
-    // Style spécifique pour les liens du menu mobile
-    const mobileNavLinkStyles = ({ isActive }) =>
-        isActive
-            ? "block text-lg font-bold text-txtLight border-b-2 border-primary py-1"
-            : "block text-lg font-medium hover:text-txtLight hover:border-b-2 hover:border-primary transition-colors duration-200 py-1";
+    // Fonction pour faire défiler vers une section
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        setIsOpen(false); // Fermer le menu mobile après clic
+    };
+
+    // Classe pour les liens de navigation desktop
+    const navLinkStyles = "font-medium hover:text-txtLight hover:border-b-2 hover:border-primary transition-colors duration-200 px-2 py-1.5 md:px-3 md:py-2 cursor-pointer";
+
+    // Style pour les liens du menu mobile
+    const mobileNavLinkStyles = "block text-lg font-medium hover:text-txtLight hover:border-b-2 hover:border-primary transition-colors duration-200 py-1 cursor-pointer";
 
     // Détecter le scroll pour appliquer l'ombre
     useEffect(() => {
         const handleScroll = () => {
-            const scrollTop =
-                window.pageYOffset || document.documentElement.scrollTop;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             setHasScrolled(scrollTop > 10);
         };
 
@@ -42,11 +49,7 @@ export function Header() {
         };
 
         const handleClickOutside = (event) => {
-            if (
-                menuRef.current &&
-                !menuRef.current.contains(event.target) &&
-                isOpen
-            ) {
+            if (menuRef.current && !menuRef.current.contains(event.target) && isOpen) {
                 setIsOpen(false);
             }
         };
@@ -82,79 +85,85 @@ export function Header() {
             <div className="max-w-screen-xl mx-auto flex items-center justify-between relative">
                 {/* Logo */}
                 <div className="relative z-20">
-                    <NavLink
-                        to="/"
+                    <button
+                        onClick={() => scrollToSection('hero')}
                         className="flex items-center"
-                        onClick={() => setIsOpen(false)}
                     >
                         <img
                             className="w-12 sm:w-14 md:w-16 h-auto"
                             src={Logo}
                             alt="Logo Luna Soulage"
                         />
-                    </NavLink>
+                    </button>
                 </div>
 
-                {/* Navigation desktop - version simplifiée et distincte */}
+                {/* Navigation desktop */}
                 <div className="hidden md:block z-20">
                     <nav className="container mx-auto">
                         <ul className="flex items-center space-x-1 lg:space-x-3">
                             <li>
-                                <NavLink to="/" className={navLinkStyles}>
+                                <button 
+                                    onClick={() => scrollToSection('hero')} 
+                                    className={navLinkStyles}
+                                >
                                     Accueil
-                                </NavLink>
+                                </button>
                             </li>
                             <li>
-                                <NavLink to="/presentation" className={navLinkStyles}>
+                                <button 
+                                    onClick={() => scrollToSection('problem-solution')} 
+                                    className={navLinkStyles}
+                                >
                                     Présentation
-                                </NavLink>
+                                </button>
                             </li>
                             <li>
-                                <NavLink
-                                    to="/instructions"
+                                <button 
+                                    onClick={() => scrollToSection('how-it-works')} 
                                     className={navLinkStyles}
                                 >
                                     Mode d'emploi
-                                </NavLink>
+                                </button>
                             </li>
                             <li>
-                                <NavLink
-                                    to="/temoignages"
+                                <button 
+                                    onClick={() => scrollToSection('testimonials')} 
                                     className={navLinkStyles}
                                 >
                                     Témoignages
-                                </NavLink>
+                                </button>
                             </li>
                             <li>
-                                <NavLink
-                                    to="/contact"
-                                    className={navLinkStyles}
+                                <a 
+                                    href={whatsApp}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-medium bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/80 transition-colors duration-200"
                                 >
                                     Commander
-                                </NavLink>
+                                </a>
                             </li>
                         </ul>
                     </nav>
                 </div>
 
-                {/* Navigation mobile - indépendante du menu desktop */}
+                {/* Navigation mobile */}
                 {isOpen && (
                     <div
                         ref={menuRef}
                         className="fixed inset-0 top-0 bg-background z-50 md:hidden"
                     >
                         <div className="flex justify-between items-center px-4 py-2 md:py-3">
-                            <NavLink
-                                to="/"
+                            <button
+                                onClick={() => scrollToSection('hero')}
                                 className="flex items-center"
-                                onClick={() => setIsOpen(false)}
                             >
                                 <img
                                     className="w-12 sm:w-14 h-auto"
                                     src={Logo}
                                     alt="Logo Luna Soulage"
                                 />
-                            </NavLink>
+                            </button>
                             <button
                                 className="flex items-center cursor-pointer justify-center w-10 h-10"
                                 onClick={() => setIsOpen(false)}
@@ -179,49 +188,47 @@ export function Header() {
                         <nav className="container mx-auto h-full">
                             <ul className="w-screen h-screen flex flex-col space-y-6 text-txt bg-background px-6 pt-6">
                                 <li>
-                                    <NavLink
-                                        to="/"
+                                    <button 
+                                        onClick={() => scrollToSection('hero')} 
                                         className={mobileNavLinkStyles}
-                                        onClick={() => setIsOpen(false)}
                                     >
                                         Accueil
-                                    </NavLink>
+                                    </button>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to="/presentation"
+                                    <button 
+                                        onClick={() => scrollToSection('problem-solution')} 
                                         className={mobileNavLinkStyles}
-                                        onClick={() => setIsOpen(false)}
                                     >
                                         Présentation
-                                    </NavLink>
+                                    </button>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to="/instructions"
+                                    <button 
+                                        onClick={() => scrollToSection('how-it-works')} 
                                         className={mobileNavLinkStyles}
-                                        onClick={() => setIsOpen(false)}
                                     >
                                         Mode d'emploi
-                                    </NavLink>
+                                    </button>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to="/temoignages"
+                                    <button 
+                                        onClick={() => scrollToSection('testimonials')} 
                                         className={mobileNavLinkStyles}
-                                        onClick={() => setIsOpen(false)}
                                     >
                                         Témoignages
-                                    </NavLink>
+                                    </button>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to="/contact"
-                                        className={mobileNavLinkStyles}
+                                    <a 
+                                        href={whatsApp}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block text-lg font-medium bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/80 transition-colors duration-200 text-center mt-4"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         Commander
-                                    </NavLink>
+                                    </a>
                                 </li>
                             </ul>
                         </nav>
