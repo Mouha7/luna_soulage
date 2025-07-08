@@ -405,7 +405,7 @@ const App = () => {
 							variants={cardVariant}
 							whileHover={hoverScaleShadow}
 						>
-							<div className="md:w-2/3 p-6">
+							<div className="p-6">
 								<div className="flex justify-between items-start mb-2">
 									<h3 className="text-xl font-bold text-primary">
 										Fatou D., 28 ans
@@ -427,7 +427,7 @@ const App = () => {
 							variants={cardVariant}
 							whileHover={hoverScaleShadow}
 						>
-							<div className="md:w-2/3 p-6 self-center">
+							<div className="p-6">
 								<div className="flex justify-between items-start mb-2">
 									<h3 className="text-xl font-bold text-primary">
 										Aminata T., 32 ans
