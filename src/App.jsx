@@ -398,13 +398,6 @@ const App = () => {
 							variants={cardVariant}
 							whileHover={hoverScaleShadow}
 						>
-							<div className="md:w-1/3">
-								<img
-									src={Woman1}
-									alt="Fatou D."
-									className="w-full h-full object-cover"
-								/>
-							</div>
 							<div className="md:w-2/3 p-6">
 								<div className="flex justify-between items-start mb-2">
 									<h3 className="text-xl font-bold text-primary">
@@ -427,13 +420,6 @@ const App = () => {
 							variants={cardVariant}
 							whileHover={hoverScaleShadow}
 						>
-							<div className="md:w-1/3">
-								<img
-									src={Woman2}
-									alt="Aminata T."
-									className="w-full h-full object-cover"
-								/>
-							</div>
 							<div className="md:w-2/3 p-6 self-center">
 								<div className="flex justify-between items-start mb-2">
 									<h3 className="text-xl font-bold text-primary">
@@ -597,7 +583,7 @@ const App = () => {
 					</motion.h2>
 
 					<motion.div
-						className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8"
+						className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-8"
 						variants={staggerContainer}
 						initial="hidden"
 						whileInView="visible"
@@ -629,9 +615,9 @@ const App = () => {
 									ease: "easeInOut",
 								}}
 							>
-								15 000 FCFA
+								8 000 FCFA
 							</motion.div>
-							<p className="text-txt mb-6">5 patchs</p>
+							<p className="text-txt mb-6">2 patchs</p>
 							<ul className="text-left mb-6 space-y-3">
 								<li className="flex items-center">
 									<span className="text-primary mr-2">✓</span>
@@ -639,16 +625,10 @@ const App = () => {
 										Idéal pour tester l'efficacité
 									</span>
 								</li>
-								<li className="flex items-center">
-									<span className="text-primary mr-2">✓</span>
-									<span className="text-txt">
-										Livraison offerte à Dakar
-									</span>
-								</li>
 							</ul>
 						</motion.div>
 
-						{/* Pack mensuel */}
+						{/* Pack sérénité */}
 						<motion.div
 							className="bg-white rounded-lg p-6 shadow-md border border-primary relative"
 							variants={cardVariant}
@@ -661,11 +641,11 @@ const App = () => {
 						>
 							<div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
 								<span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-bold">
-									PLUS POPULAIRE
+									POPULAIRE
 								</span>
 							</div>
 							<h3 className="text-xl font-bold text-primary mb-3">
-								Pack mensuel
+								Pack Sérénité
 							</h3>
 							<motion.div
 								className="text-4xl font-bold text-primary mb-2"
@@ -679,9 +659,9 @@ const App = () => {
 									ease: "easeInOut",
 								}}
 							>
-								30 000 FCFA
+								14 000 FCFA
 							</motion.div>
-							<p className="text-txt mb-6">12 patchs</p>
+							<p className="text-txt mb-6">4 patchs</p>
 							<ul className="text-left mb-6 space-y-3">
 								<li className="flex items-center">
 									<span className="text-primary mr-2">✓</span>
@@ -697,17 +677,52 @@ const App = () => {
 								</li>
 							</ul>
 						</motion.div>
-					</motion.div>
 
-					<motion.p
-						className="text-txtLight text-sm mb-8"
-						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
-						viewport={{ once: true }}
-						transition={{ delay: 0.2, duration: 0.6 }}
-					>
-						Satisfaite ou remboursée sous 30 jours
-					</motion.p>
+						{/* Pack liberté */}
+						<motion.div
+							className="bg-white rounded-lg p-6 shadow-md border border-primary relative"
+							variants={cardVariant}
+							whileHover={{
+								scale: 1.03,
+								boxShadow:
+									"0 10px 25px rgba(167, 68, 136, 0.2)",
+								y: -5,
+							}}
+						>
+							<h3 className="text-xl font-bold text-primary mb-3">
+								Pack Liberté
+							</h3>
+							<motion.div
+								className="text-4xl font-bold text-primary mb-2"
+								animate={{
+									scale: [1, 1.1, 1],
+									opacity: [0.8, 1, 0.8],
+								}}
+								transition={{
+									repeat: Infinity,
+									duration: 4,
+									ease: "easeInOut",
+								}}
+							>
+								24 000 FCFA
+							</motion.div>
+							<p className="text-txt mb-6">8 patchs</p>
+							<ul className="text-left mb-6 space-y-3">
+								<li className="flex items-center">
+									<span className="text-primary mr-2">✓</span>
+									<span className="text-txt">
+										Couverture complète de 2 cycles
+									</span>
+								</li>
+								<li className="flex items-center">
+									<span className="text-primary mr-2">✓</span>
+									<span className="text-txt">
+										Livraison offerte à Dakar
+									</span>
+								</li>
+							</ul>
+						</motion.div>
+					</motion.div>
 				</div>
 			</section>
 
