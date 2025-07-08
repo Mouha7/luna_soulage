@@ -14,8 +14,10 @@ import { Header } from "./components/Header";
 // Images - Assurez-vous d'avoir ces images dans vos assets
 import BannerHome from "./assets/images/banner_home.jpg";
 import PatchApplication from "./assets/images/patch_applied.jpg";
-import Woman1 from "./assets/images/testimonial1.png";
-import Woman2 from "./assets/images/testimonial2.png";
+import PatchUnwrap from "./assets/images/patch_unwrap.png";
+import PatchApply from "./assets/images/patch_applied.jpg";
+import PatchPrepare from "./assets/images/patch_prepare.jpg";
+// import PatchRemove from "./assets/images/patch_remove.jpg";
 
 // Animations
 import {
@@ -285,10 +287,7 @@ const App = () => {
 			</section>
 
 			{/* 4. COMMENT ÇA MARCHE */}
-			<section
-				className="container mx-auto px-4 py-12 md:py-16"
-				id="how-it-works"
-			>
+			<section className="container mx-auto px-4 py-12 md:py-16">
 				<motion.h2
 					className="text-2xl md:text-3xl font-bold text-primary text-center mb-8"
 					initial={{ opacity: 0 }}
@@ -296,8 +295,9 @@ const App = () => {
 					viewport={{ once: true }}
 					transition={{ duration: 0.6 }}
 				>
-					Simple comme 1-2-3
+					Application en 3 étapes simples
 				</motion.h2>
+
 				<motion.div
 					className="grid grid-cols-1 md:grid-cols-3 gap-8"
 					variants={staggerContainer}
@@ -306,65 +306,72 @@ const App = () => {
 					viewport={{ once: true, amount: 0.1 }}
 				>
 					<motion.div
-						className="bg-card rounded-lg p-6 shadow-md text-center"
+						className="bg-white rounded-lg shadow-md overflow-hidden"
 						variants={cardVariant}
 						whileHover={hoverScale}
 					>
-						<motion.div
-							className="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full text-2xl font-bold mb-4"
-							whileHover={{ rotate: 5 }}
-							transition={{ duration: 0.3 }}
-						>
-							1
-						</motion.div>
-						<h3 className="text-xl font-bold text-primary mb-3">
-							Décollez
-						</h3>
-						<p className="text-txt">
-							Retirez délicatement le patch de son support
-							protecteur
-						</p>
+						<img
+							src={PatchPrepare}
+							alt="Préparation du patch"
+							className="w-full h-48 object-cover"
+						/>
+						<div className="p-6">
+							<h3 className="text-xl font-bold text-primary mb-3">
+								Étape 1 : Préparation du patch
+							</h3>
+							<p className="text-txt">
+								Sortez le patch de son emballage individuel.
+								Évitez de toucher la surface adhésive avec vos
+								doigts pour préserver l'efficacité des
+								ingrédients actifs.
+							</p>
+						</div>
 					</motion.div>
 
 					<motion.div
-						className="bg-card rounded-lg p-6 shadow-md text-center"
+						className="bg-white rounded-lg shadow-md overflow-hidden"
 						variants={cardVariant}
 						whileHover={hoverScale}
 					>
-						<motion.div
-							className="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full text-2xl font-bold mb-4"
-							whileHover={{ rotate: 5 }}
-							transition={{ duration: 0.3 }}
-						>
-							2
-						</motion.div>
-						<h3 className="text-xl font-bold text-primary mb-3">
-							Appliquez
-						</h3>
-						<p className="text-txt">
-							Appliquez-le sur la zone douloureuse (bas-ventre ou
-							bas du dos)
-						</p>
+						<img
+							src={PatchUnwrap}
+							alt="Retrait du film protecteur"
+							className="w-full h-48 object-cover"
+						/>
+						<div className="p-6">
+							<h3 className="text-xl font-bold text-primary mb-3">
+								Étape 2 : Retrait du film protecteur
+							</h3>
+							<p className="text-txt">
+								Décollez délicatement le film protecteur qui
+								recouvre la face adhésive du patch. Tenez le
+								patch par les bords pour éviter de toucher la
+								partie adhésive.
+							</p>
+						</div>
 					</motion.div>
 
 					<motion.div
-						className="bg-card rounded-lg p-6 shadow-md text-center"
+						className="bg-white rounded-lg shadow-md overflow-hidden"
 						variants={cardVariant}
 						whileHover={hoverScale}
 					>
-						<motion.div
-							className="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full text-2xl font-bold mb-4"
-							whileHover={{ rotate: 5 }}
-							transition={{ duration: 0.3 }}
-						>
-							3
-						</motion.div>
-						<h3 className="text-xl font-bold text-primary mb-3">
-							Profitez
-						</h3>
-						<p className="text-txt">
-							Profitez d'un soulagement rapide pendant 8 heures
-						</p>
+						<img
+							src={PatchApply}
+							alt="Application sur la peau"
+							className="w-full h-48 object-cover"
+						/>
+						<div className="p-6">
+							<h3 className="text-xl font-bold text-primary mb-3">
+								Étape 3 : Application sur la peau
+							</h3>
+							<p className="text-txt">
+								Appliquez le patch directement sur la zone
+								douloureuse (bas-ventre ou bas du dos). Appuyez
+								légèrement pendant quelques secondes pour vous
+								assurer qu'il adhère bien à la peau.
+							</p>
+						</div>
 					</motion.div>
 				</motion.div>
 			</section>
