@@ -822,16 +822,6 @@ const App = () => {
 					>
 						Livraison rapide
 					</motion.div>
-					<motion.div
-						className="bg-primary/10 text-primary text-sm font-bold py-2 px-4 rounded-full"
-						variants={cardVariant}
-						whileHover={{
-							scale: 1.1,
-							backgroundColor: "rgba(167, 68, 136, 0.2)",
-						}}
-					>
-						Satisfaite ou remboursée
-					</motion.div>
 				</motion.div>
 			</section>
 
