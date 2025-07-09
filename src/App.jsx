@@ -287,7 +287,7 @@ const App = () => {
 			</section>
 
 			{/* 4. COMMENT ÇA MARCHE */}
-			<section className="container mx-auto px-4 py-12 md:py-16">
+			<section className="container mx-auto px-4 py-12 md:py-16" id="how-it-works">
 				<motion.h2
 					className="text-2xl md:text-3xl font-bold text-primary text-center mb-8"
 					initial={{ opacity: 0 }}
