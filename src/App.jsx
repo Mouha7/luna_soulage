@@ -69,7 +69,7 @@ const App = () => {
 
 			{/* 1. HERO SECTION */}
 			<motion.div
-				className="bg-cover bg-center bg-no-repeat md:h-[600px] sm:h-[500px] h-[450px] shadow-lg relative"
+				className="bg-cover bg-center bg-no-repeat md:h-[700px] sm:h-[600px] h-[500px] shadow-lg relative"
 				style={{ backgroundImage: `url(${BannerHome})` }}
 				variants={bannerAnimation}
 				initial="hidden"
