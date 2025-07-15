@@ -12,7 +12,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 
 // Images - Assurez-vous d'avoir ces images dans vos assets
-import BannerHome from "./assets/images/banner_home.jpg";
+import BannerHome from "./assets/images/banner.png";
 import PatchApplication from "./assets/images/patch_applied.jpg";
 import PatchUnwrap from "./assets/images/patch_unwrap.png";
 import PatchApply from "./assets/images/patch_applied.jpg";
@@ -77,7 +77,7 @@ const App = () => {
 				id="hero"
 			>
 				<motion.div
-					className="flex flex-col items-center justify-center gap-3 md:gap-5 h-full bg-black/50 text-white p-4 md:p-5"
+					className="flex flex-col items-center justify-center gap-3 md:gap-5 h-full bg-black/25 text-white p-4 md:p-5"
 					variants={bannerContentAnimation}
 				>
 					<motion.h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-center max-w-4xl">
@@ -287,7 +287,10 @@ const App = () => {
 			</section>
 
 			{/* 4. COMMENT ÇA MARCHE */}
-			<section className="container mx-auto px-4 py-12 md:py-16" id="how-it-works">
+			<section
+				className="container mx-auto px-4 py-12 md:py-16"
+				id="how-it-works"
+			>
 				<motion.h2
 					className="text-2xl md:text-3xl font-bold text-primary text-center mb-8"
 					initial={{ opacity: 0 }}
@@ -392,57 +395,240 @@ const App = () => {
 						Elles ont testé, elles approuvent
 					</motion.h2>
 
-					<motion.div
-						className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8"
-						variants={staggerContainer}
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true, amount: 0.1 }}
-					>
-						{/* Témoignage 1 */}
+					{/* Carousel des témoignages */}
+					<div className="relative overflow-hidden mb-8">
 						<motion.div
-							className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center md:flex-row"
-							variants={cardVariant}
-							whileHover={hoverScaleShadow}
+							className="flex"
+							animate={{
+								x: ["0%", "-100%"],
+							}}
+							transition={{
+								duration: 100,
+								repeat: Infinity,
+								ease: "linear",
+							}}
+							style={{ width: "200%" }}
 						>
-							<div className="p-6">
-								<div className="flex justify-between items-start mb-2">
-									<h3 className="text-xl font-bold text-primary">
-										Fatou D., 28 ans
-									</h3>
-									<div className="flex">{renderStars(5)}</div>
-								</div>
-								<p className="text-txt italic">
-									"Pour la première fois en 10 ans, j'ai pu
-									enseigner normalement pendant mes règles. Je
-									recommande ces patchs à toutes les femmes
-									qui souffrent."
-								</p>
-							</div>
-						</motion.div>
+							{/* Premier set de témoignages */}
+							<div
+								className="flex gap-6 md:gap-8"
+								style={{ width: "50%" }}
+							>
+								{/* Témoignage 1 */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
+									style={{
+										width: "350px",
+										minWidth: "350px",
+									}}
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-2">
+										<h3 className="text-xl font-bold text-primary">
+											Fatou D., 28 ans
+										</h3>
+										<div className="flex">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic">
+										"Pour la première fois en 10 ans, j'ai
+										pu enseigner normalement pendant mes
+										règles. Je recommande ces patchs à
+										toutes les femmes qui souffrent."
+									</p>
+								</motion.div>
 
-						{/* Témoignage 2 */}
-						<motion.div
-							className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row"
-							variants={cardVariant}
-							whileHover={hoverScaleShadow}
-						>
-							<div className="p-6">
-								<div className="flex justify-between items-start mb-2">
-									<h3 className="text-xl font-bold text-primary">
-										Aminata T., 32 ans
-									</h3>
-									<div className="flex">{renderStars(5)}</div>
-								</div>
-								<p className="text-txt italic">
-									"Le patch a réduit ma douleur de 70% en
-									moins d'une heure. Je peux maintenant
-									travailler normalement même les premiers
-									jours."
-								</p>
+								{/* Témoignage 2 */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
+									style={{
+										width: "350px",
+										minWidth: "350px",
+									}}
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-2">
+										<h3 className="text-xl font-bold text-primary">
+											Aminata T., 32 ans
+										</h3>
+										<div className="flex">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic">
+										"Le patch a réduit ma douleur de 70% en
+										moins d'une heure. Je peux maintenant
+										travailler normalement même les premiers
+										jours."
+									</p>
+								</motion.div>
+
+								{/* Témoignage 3 */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
+									style={{
+										width: "350px",
+										minWidth: "350px",
+									}}
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-2">
+										<h3 className="text-xl font-bold text-primary">
+											Mariama S., 24 ans
+										</h3>
+										<div className="flex">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic">
+										"Fini les journées gâchées par les
+										douleurs ! Avec Luna Soulage, je peux
+										enfin profiter de ma vie même pendant
+										mes règles."
+									</p>
+								</motion.div>
+
+							</div>
+
+							{/* Duplication exacte pour l'effet infini */}
+							<div
+								className="flex gap-6 md:gap-8"
+								style={{ width: "50%" }}
+							>
+								{/* Témoignage 1 (dupliqué) */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
+									style={{
+										width: "350px",
+										minWidth: "350px",
+									}}
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-2">
+										<h3 className="text-xl font-bold text-primary">
+											Fatou D., 28 ans
+										</h3>
+										<div className="flex">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic">
+										"Pour la première fois en 10 ans, j'ai
+										pu enseigner normalement pendant mes
+										règles. Je recommande ces patchs à
+										toutes les femmes qui souffrent."
+									</p>
+								</motion.div>
+
+								{/* Témoignage 2 (dupliqué) */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
+									style={{
+										width: "350px",
+										minWidth: "350px",
+									}}
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-2">
+										<h3 className="text-xl font-bold text-primary">
+											Aminata T., 32 ans
+										</h3>
+										<div className="flex">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic">
+										"Le patch a réduit ma douleur de 70% en
+										moins d'une heure. Je peux maintenant
+										travailler normalement même les premiers
+										jours."
+									</p>
+								</motion.div>
+
+								{/* Témoignage 3 (dupliqué) */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
+									style={{
+										width: "350px",
+										minWidth: "350px",
+									}}
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-2">
+										<h3 className="text-xl font-bold text-primary">
+											Mariama S., 24 ans
+										</h3>
+										<div className="flex">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic">
+										"Fini les journées gâchées par les
+										douleurs ! Avec Luna Soulage, je peux
+										enfin profiter de ma vie même pendant
+										mes règles."
+									</p>
+								</motion.div>
+
+								{/* Témoignage 4 (dupliqué) */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
+									style={{
+										width: "350px",
+										minWidth: "350px",
+									}}
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-2">
+										<h3 className="text-xl font-bold text-primary">
+											Aïcha K., 30 ans
+										</h3>
+										<div className="flex">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic">
+										"Naturel et efficace ! Je ne pourrais
+										plus me passer de ces patchs. Mes
+										collègues me demandent mon secret."
+									</p>
+								</motion.div>
+
+								{/* Témoignage 5 (dupliqué) */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
+									style={{
+										width: "350px",
+										minWidth: "350px",
+									}}
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-2">
+										<h3 className="text-xl font-bold text-primary">
+											Khadija M., 26 ans
+										</h3>
+										<div className="flex">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic">
+										"Révolutionnaire ! Plus besoin de
+										prendre des médicaments tous les jours.
+										Ces patchs ont changé ma vie."
+									</p>
+								</motion.div>
 							</div>
 						</motion.div>
-					</motion.div>
+					</div>
 
 					{/* Statistiques */}
 					<motion.div
