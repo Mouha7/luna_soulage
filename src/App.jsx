@@ -403,36 +403,29 @@ const App = () => {
 								x: ["0%", "-100%"],
 							}}
 							transition={{
-								duration: 100,
+								duration: 60,
 								repeat: Infinity,
 								ease: "linear",
 							}}
 							style={{ width: "200%" }}
 						>
 							{/* Premier set de témoignages */}
-							<div
-								className="flex gap-6 md:gap-8"
-								style={{ width: "50%" }}
-							>
+							<div className="flex gap-6 md:gap-8 min-w-full">
 								{/* Témoignage 1 */}
 								<motion.div
-									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
-									style={{
-										width: "350px",
-										minWidth: "350px",
-									}}
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
 									variants={cardVariant}
 									whileHover={hoverScaleShadow}
 								>
-									<div className="flex justify-between items-start mb-2">
-										<h3 className="text-xl font-bold text-primary">
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
 											Fatou D., 28 ans
 										</h3>
-										<div className="flex">
+										<div className="flex flex-shrink-0">
 											{renderStars(5)}
 										</div>
 									</div>
-									<p className="text-txt italic">
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
 										"Pour la première fois en 10 ans, j'ai
 										pu enseigner normalement pendant mes
 										règles. Je recommande ces patchs à
@@ -442,23 +435,19 @@ const App = () => {
 
 								{/* Témoignage 2 */}
 								<motion.div
-									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
-									style={{
-										width: "350px",
-										minWidth: "350px",
-									}}
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
 									variants={cardVariant}
 									whileHover={hoverScaleShadow}
 								>
-									<div className="flex justify-between items-start mb-2">
-										<h3 className="text-xl font-bold text-primary">
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
 											Aminata T., 32 ans
 										</h3>
-										<div className="flex">
+										<div className="flex flex-shrink-0">
 											{renderStars(5)}
 										</div>
 									</div>
-									<p className="text-txt italic">
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
 										"Le patch a réduit ma douleur de 70% en
 										moins d'une heure. Je peux maintenant
 										travailler normalement même les premiers
@@ -468,23 +457,19 @@ const App = () => {
 
 								{/* Témoignage 3 */}
 								<motion.div
-									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
-									style={{
-										width: "350px",
-										minWidth: "350px",
-									}}
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
 									variants={cardVariant}
 									whileHover={hoverScaleShadow}
 								>
-									<div className="flex justify-between items-start mb-2">
-										<h3 className="text-xl font-bold text-primary">
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
 											Mariama S., 24 ans
 										</h3>
-										<div className="flex">
+										<div className="flex flex-shrink-0">
 											{renderStars(5)}
 										</div>
 									</div>
-									<p className="text-txt italic">
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
 										"Fini les journées gâchées par les
 										douleurs ! Avec Luna Soulage, je peux
 										enfin profiter de ma vie même pendant
@@ -492,32 +477,87 @@ const App = () => {
 									</p>
 								</motion.div>
 
-							</div>
-
-							{/* Duplication exacte pour l'effet infini */}
-							<div
-								className="flex gap-6 md:gap-8"
-								style={{ width: "50%" }}
-							>
-								{/* Témoignage 1 (dupliqué) */}
+								{/* Témoignage 4 */}
 								<motion.div
-									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
-									style={{
-										width: "350px",
-										minWidth: "350px",
-									}}
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
 									variants={cardVariant}
 									whileHover={hoverScaleShadow}
 								>
-									<div className="flex justify-between items-start mb-2">
-										<h3 className="text-xl font-bold text-primary">
-											Fatou D., 28 ans
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
+											Aïcha K., 30 ans
 										</h3>
-										<div className="flex">
+										<div className="flex flex-shrink-0">
 											{renderStars(5)}
 										</div>
 									</div>
-									<p className="text-txt italic">
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
+										"Naturel et efficace ! Je ne pourrais
+										plus me passer de ces patchs. Mes
+										collègues me demandent mon secret."
+									</p>
+								</motion.div>
+
+								{/* Témoignage 5 */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
+											Khadija M., 26 ans
+										</h3>
+										<div className="flex flex-shrink-0">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
+										"Révolutionnaire ! Plus besoin de
+										prendre des médicaments tous les jours.
+										Ces patchs ont changé ma vie."
+									</p>
+								</motion.div>
+
+								{/* Témoignage 6 */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
+											Salma B., 29 ans
+										</h3>
+										<div className="flex flex-shrink-0">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
+										"Je recommande vivement ! Enfin une
+										solution qui fonctionne réellement et
+										qui est respectueuse de mon corps."
+									</p>
+								</motion.div>
+							</div>
+
+							{/* Duplication exacte pour l'effet infini */}
+							<div className="flex gap-6 md:gap-8 min-w-full">
+								{/* Témoignage 1 (dupliqué) */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
+											Fatou D., 28 ans
+										</h3>
+										<div className="flex flex-shrink-0">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
 										"Pour la première fois en 10 ans, j'ai
 										pu enseigner normalement pendant mes
 										règles. Je recommande ces patchs à
@@ -527,23 +567,19 @@ const App = () => {
 
 								{/* Témoignage 2 (dupliqué) */}
 								<motion.div
-									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
-									style={{
-										width: "350px",
-										minWidth: "350px",
-									}}
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
 									variants={cardVariant}
 									whileHover={hoverScaleShadow}
 								>
-									<div className="flex justify-between items-start mb-2">
-										<h3 className="text-xl font-bold text-primary">
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
 											Aminata T., 32 ans
 										</h3>
-										<div className="flex">
+										<div className="flex flex-shrink-0">
 											{renderStars(5)}
 										</div>
 									</div>
-									<p className="text-txt italic">
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
 										"Le patch a réduit ma douleur de 70% en
 										moins d'une heure. Je peux maintenant
 										travailler normalement même les premiers
@@ -553,23 +589,19 @@ const App = () => {
 
 								{/* Témoignage 3 (dupliqué) */}
 								<motion.div
-									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
-									style={{
-										width: "350px",
-										minWidth: "350px",
-									}}
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
 									variants={cardVariant}
 									whileHover={hoverScaleShadow}
 								>
-									<div className="flex justify-between items-start mb-2">
-										<h3 className="text-xl font-bold text-primary">
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
 											Mariama S., 24 ans
 										</h3>
-										<div className="flex">
+										<div className="flex flex-shrink-0">
 											{renderStars(5)}
 										</div>
 									</div>
-									<p className="text-txt italic">
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
 										"Fini les journées gâchées par les
 										douleurs ! Avec Luna Soulage, je peux
 										enfin profiter de ma vie même pendant
@@ -579,23 +611,19 @@ const App = () => {
 
 								{/* Témoignage 4 (dupliqué) */}
 								<motion.div
-									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
-									style={{
-										width: "350px",
-										minWidth: "350px",
-									}}
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
 									variants={cardVariant}
 									whileHover={hoverScaleShadow}
 								>
-									<div className="flex justify-between items-start mb-2">
-										<h3 className="text-xl font-bold text-primary">
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
 											Aïcha K., 30 ans
 										</h3>
-										<div className="flex">
+										<div className="flex flex-shrink-0">
 											{renderStars(5)}
 										</div>
 									</div>
-									<p className="text-txt italic">
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
 										"Naturel et efficace ! Je ne pourrais
 										plus me passer de ces patchs. Mes
 										collègues me demandent mon secret."
@@ -604,26 +632,43 @@ const App = () => {
 
 								{/* Témoignage 5 (dupliqué) */}
 								<motion.div
-									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0"
-									style={{
-										width: "350px",
-										minWidth: "350px",
-									}}
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
 									variants={cardVariant}
 									whileHover={hoverScaleShadow}
 								>
-									<div className="flex justify-between items-start mb-2">
-										<h3 className="text-xl font-bold text-primary">
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
 											Khadija M., 26 ans
 										</h3>
-										<div className="flex">
+										<div className="flex flex-shrink-0">
 											{renderStars(5)}
 										</div>
 									</div>
-									<p className="text-txt italic">
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
 										"Révolutionnaire ! Plus besoin de
 										prendre des médicaments tous les jours.
 										Ces patchs ont changé ma vie."
+									</p>
+								</motion.div>
+
+								{/* Témoignage 6 (dupliqué) */}
+								<motion.div
+									className="bg-white rounded-lg shadow-md p-6 flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px]"
+									variants={cardVariant}
+									whileHover={hoverScaleShadow}
+								>
+									<div className="flex justify-between items-start mb-3">
+										<h3 className="text-base sm:text-lg md:text-xl font-bold text-primary">
+											Salma B., 29 ans
+										</h3>
+										<div className="flex flex-shrink-0">
+											{renderStars(5)}
+										</div>
+									</div>
+									<p className="text-txt italic text-sm md:text-base leading-relaxed">
+										"Je recommande vivement ! Enfin une
+										solution qui fonctionne réellement et
+										qui est respectueuse de mon corps."
 									</p>
 								</motion.div>
 							</div>
